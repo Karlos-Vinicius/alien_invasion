@@ -7,9 +7,13 @@ class Ship:
         """Inicializando a espaçonave e suas configuraçoes iniciais"""
         self.screen = central_game.screen
         self.screen_rect = central_game.screen.get_rect()
+        self.size = (50, 50)
+        self.rotate = 180
 
         # Sobe a imagem da espaçonave e obtém seu rect
-        self.image = pygame.image.load('images/ship.bmp')
+        self.image_incorrect_size = pygame.image.load('images/ship_official.bmp')
+        self.image_incorrect_rotate = pygame.transform.scale(self.image_incorrect_size, self.size)
+        self.image = pygame.transform.rotate(self.image_incorrect_rotate, self.rotate)
         self.rect = self.image.get_rect()
 
         # Começa cada espaçona no centro inferior da imagem
