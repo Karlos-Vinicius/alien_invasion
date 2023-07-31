@@ -7,7 +7,7 @@ class Ship:
         """Inicializando a espaçonave e suas configuraçoes iniciais"""
         self.screen = central_game.screen
         self.screen_rect = central_game.screen.get_rect()
-        self.size = (50, 50)
+        self.size = (100, 100)
         self.rotate = 180
 
         # Sobe a imagem da espaçonave e obtém seu rect
