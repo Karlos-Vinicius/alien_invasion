@@ -38,9 +38,11 @@ class AlienInvasion():
                     self.ship.moving_left = True
 
                 elif event.key == pygame.K_UP:
+                    # Move a espaçonave para cima
                     self.ship.moving_up = True
 
                 elif event.key == pygame.K_DOWN:
+                    # Move a espaçonave para baixo
                     self.ship.moving_down = True
 
             elif event.type == pygame.KEYUP:
