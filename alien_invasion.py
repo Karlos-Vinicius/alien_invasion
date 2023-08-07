@@ -21,24 +21,36 @@ class AlienInvasion():
 
         self.ship = Ship(self)
 
+
+    def _check_events(self):
+        """Responde as teclas pressionadas e eventos do mouse"""
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+
+
+    def _update_screen(self):
+        """Atualiza as imagens na tela"""
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blitme()
+        pygame.display.flip()
+
+
     def run_game(self):
         """Inicializa o loop do jogo"""
         while self.running_game:
             # Observa eventos do teclado
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    self.running_game = False
+            self._check_events()
 
             # Redesenha a tela a cada passagem pelo loop
-            self.screen.fill(self.settings.bg_color)
-            self.ship.blitme()
-            
-            # Deixa a tela desenhada mais recente visível
+            self._update_screen()
+
+            # Taxa de 60 quadros por segundo
             self.clock.tick(60)
-            pygame.display.flip()
         
         # Fecha o jogo
         sys.exit()
+
 
 if __name__ == '__main__':
     # Cria uma instância do jogo e o executa
