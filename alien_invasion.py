@@ -28,6 +28,19 @@ class AlienInvasion():
             if event.type == pygame.QUIT:
                 sys.exit()
 
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RIGHT:
+                    # Move a espaçonave para a direita
+                    self.ship.moving_right = True
+
+                elif event.key == pygame.K_LEFT:
+                    # Move a espaçonave para a esquerda
+                    self.ship.moving_left = True
+
+            elif event.type == pygame.KEYUP:
+                self.ship.moving_left = False
+                self.ship.moving_right = False
+
 
     def _update_screen(self):
         """Atualiza as imagens na tela"""
@@ -44,6 +57,7 @@ class AlienInvasion():
 
             # Redesenha a tela a cada passagem pelo loop
             self._update_screen()
+            self.ship.update()
 
             # Taxa de 60 quadros por segundo
             self.clock.tick(60)

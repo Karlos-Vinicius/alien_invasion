@@ -19,6 +19,19 @@ class Ship:
         # Começa cada espaçona no centro inferior da imagem
         self.rect.midbottom = self.screen_rect.midbottom
 
+        # Flag de movimentaçao, começa com uma espaçonave que não está se movento
+        self.moving_right = False
+        self.moving_left = False
+
+
     def blitme(self):
         """Desenha a nave em sua localizaçao atual"""
         self.screen.blit(self.image, self.rect)
+
+    
+    def update(self):
+        if self.moving_right:
+            self.rect.x += 1
+
+        if self.moving_left:
+            self.rect.x -= 1
