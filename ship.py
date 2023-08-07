@@ -22,6 +22,8 @@ class Ship:
         # Flag de movimentaçao, começa com uma espaçonave que não está se movento
         self.moving_right = False
         self.moving_left = False
+        self.moving_up = False
+        self.moving_down = False
 
 
     def blitme(self):
@@ -35,3 +37,9 @@ class Ship:
 
         if self.moving_left:
             self.rect.x -= 1
+            
+        if self.moving_up:
+            self.rect.y += 1
+
+        if self.moving_down:
+            self.rect.y -= 1
