@@ -9,6 +9,7 @@ class Ship:
         self.screen_rect = central_game.screen.get_rect()
         self.size = (100, 100)
         self.rotate = 180
+        self.settings = central_game.settings
 
         # Sobe a imagem da espaçonave e obtém seu rect
         self.image_incorrect_size = pygame.image.load('images/ship_official.bmp')
@@ -18,6 +19,12 @@ class Ship:
 
         # Começa cada espaçona no centro inferior da imagem
         self.rect.midbottom = self.screen_rect.midbottom
+
+        # Armazena um float para a posiçao horizontal exata da espaçonave
+        self.x = float(self.rect.y)
+
+        # Armazxena um float para a posiçao vertical exata da espaçonave
+        self.y = float(self.rect.y)
 
         # Flag de movimentaçao, começa com uma espaçonave que não está se movento
         self.moving_right = False
@@ -33,13 +40,19 @@ class Ship:
     
     def update(self):
         if self.moving_right:
-            self.rect.x += 1
+            self.x += self.settings.ship_speed
 
         elif self.moving_left:
-            self.rect.x -= 1
+            self.x -= self.settings.ship_speed
             
         if self.moving_up:
-            self.rect.y -= 1
+            self.y -= self.settings.ship_speed
 
         elif self.moving_down:
-            self.rect.y += 1
+            self.y += self.settings.ship_speed
+
+        # Atualiza o objeto rect de self.x
+        self.rect.x = self.x
+
+        # Atualiza o objeto rect de self.y
+        self.rect.y = self.y

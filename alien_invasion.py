@@ -72,11 +72,11 @@ class AlienInvasion():
         while self.running_game:
             # Observa eventos do teclado
             self._check_events()
+            self.ship.update()
 
             # Redesenha a tela a cada passagem pelo loop
             self._update_screen()
-            self.ship.update()
-
+            
             # Taxa de 60 quadros por segundo
             self.clock.tick(60)
         
