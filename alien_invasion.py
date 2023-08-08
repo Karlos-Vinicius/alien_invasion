@@ -46,10 +46,18 @@ class AlienInvasion():
                     self.ship.moving_down = True
 
             elif event.type == pygame.KEYUP:
-                self.ship.moving_left = False
-                self.ship.moving_right = False
-                self.ship.moving_up = False
-                self.ship.moving_down = False
+                # Verificando qual tecla deixou de ser pressionada
+                if event.key == pygame.K_LEFT:
+                    self.ship.moving_left = False
+
+                if event.key == pygame.K_RIGHT:
+                    self.ship.moving_right = False
+
+                if event.key == pygame.K_UP:
+                    self.ship.moving_up = False
+
+                if event.key == pygame.K_DOWN:
+                    self.ship.moving_down = False
 
 
     def _update_screen(self):

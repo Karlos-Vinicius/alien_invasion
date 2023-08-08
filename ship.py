@@ -35,11 +35,11 @@ class Ship:
         if self.moving_right:
             self.rect.x += 1
 
-        if self.moving_left:
+        elif self.moving_left:
             self.rect.x -= 1
             
         if self.moving_up:
-            self.rect.y += 1
-
-        if self.moving_down:
             self.rect.y -= 1
+
+        elif self.moving_down:
+            self.rect.y += 1
