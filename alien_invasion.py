@@ -26,7 +26,7 @@ class AlienInvasion():
         """Responde as teclas pressionadas e eventos do mouse"""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                sys.exit()
+                self.running_game = False
 
             elif event.type == pygame.KEYDOWN:
                 self._check_key_down(event)
@@ -55,7 +55,7 @@ class AlienInvasion():
 
         elif event.key == pygame.K_q:
             # Sair do jogo
-            sys.exit()
+            self.running_game = False
 
 
     def _check_key_up(self, event):
