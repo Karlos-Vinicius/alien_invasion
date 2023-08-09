@@ -39,16 +39,16 @@ class Ship:
 
     
     def update(self):
-        if self.moving_right:
+        if self.moving_right and self.screen_rect.right > self.rect.right:
             self.x += self.settings.ship_speed
 
-        elif self.moving_left:
+        elif self.moving_left and self.screen_rect.left < self.rect.left:
             self.x -= self.settings.ship_speed
             
-        if self.moving_up:
+        if self.moving_up and self.screen_rect.top < self.rect.top:
             self.y -= self.settings.ship_speed
 
-        elif self.moving_down:
+        elif self.moving_down and self.screen_rect.bottom > self.rect.bottom:
             self.y += self.settings.ship_speed
 
         # Atualiza o objeto rect de self.x
