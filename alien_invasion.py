@@ -45,6 +45,10 @@ class AlienInvasion():
                     # Move a espaçonave para baixo
                     self.ship.moving_down = True
 
+                elif event.key == pygame.K_q:
+                    # Sair do jogo
+                    sys.exit()
+
             elif event.type == pygame.KEYUP:
                 # Verificando qual tecla deixou de ser pressionada
                 if event.key == pygame.K_LEFT:
