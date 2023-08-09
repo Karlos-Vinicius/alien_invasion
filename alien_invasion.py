@@ -29,6 +29,7 @@ class AlienInvasion():
                 sys.exit()
 
             elif event.type == pygame.KEYDOWN:
+                # Verificando qual tecla foi pressionada
                 if event.key == pygame.K_RIGHT:
                     # Move a espaçonave para a direita
                     self.ship.moving_right = True
@@ -52,15 +53,19 @@ class AlienInvasion():
             elif event.type == pygame.KEYUP:
                 # Verificando qual tecla deixou de ser pressionada
                 if event.key == pygame.K_LEFT:
+                    # Para de mover a espaçonave para a esquerda
                     self.ship.moving_left = False
 
                 if event.key == pygame.K_RIGHT:
+                    # Para de mover a espaçonave para a direita
                     self.ship.moving_right = False
 
                 if event.key == pygame.K_UP:
+                    # Para de mover a espaçonave para cima
                     self.ship.moving_up = False
 
                 if event.key == pygame.K_DOWN:
+                    # Para de mover a espaçonave para baixo
                     self.ship.moving_down = False
 
 
