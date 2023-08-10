@@ -39,6 +39,7 @@ class Ship:
 
     
     def update(self):
+        """Avalia se para ou se deve movimentar a nave"""
         if self.moving_right and self.screen_rect.right > self.rect.right:
             self.x += self.settings.ship_speed
 

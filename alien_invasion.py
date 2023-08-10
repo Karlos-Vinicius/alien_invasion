@@ -102,6 +102,6 @@ class AlienInvasion():
 
 
 if __name__ == '__main__':
-    # Cria uma instância do jogo e o executa
+    # Cria uma instância do jogo e executa-o
     game = AlienInvasion()
     game.run_game()
