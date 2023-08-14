@@ -1,5 +1,5 @@
 import pygame
-from pygame.sprite import _Group, Sprite
+from pygame.sprite import Sprite
 
 
 class Bullet(Sprite):
@@ -10,11 +10,11 @@ class Bullet(Sprite):
 
         self.screen = other_class.screen
         self.settings = other_class.settings
-        self.color = self.settings.bullet_color
+        self.color = self.settings.bullet_bg_color
 
         # Cria um bullet rect em (0, 0) e, em seguida, define a posiçao correta
-        self.rect = pygame.Rect(0, 0, self.settings.width, self.settings.height)
-        self.rect.midtop = other_class.ship.midtop
+        self.rect = pygame.Rect(0, 0, self.settings.bullet_widht, self.settings.bullet_height)
+        self.rect.midtop = other_class.ship.rect.midtop
 
         # Armazena a posiçao atual do projétil
         self.y = float(self.rect.y)

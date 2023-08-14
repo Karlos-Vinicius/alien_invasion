@@ -61,6 +61,10 @@ class AlienInvasion():
             # Sair do jogo
             self.running_game = False
 
+        elif event.key == pygame.K_SPACE:
+            # Atira projéteis na tela
+            self._fire_bullet()
+
 
     def _check_key_up(self, event):
         # Verificando qual tecla deixou de ser pressionada
@@ -79,6 +83,11 @@ class AlienInvasion():
         if event.key == pygame.K_DOWN:
             # Para de mover a espaçonave para baixo
             self.ship.moving_down = False
+    
+
+    def _fire_bullet(self):
+        new_bullet = Bullet(self)
+        self.bullet.add(new_bullet)
 
 
     def _update_screen(self):
@@ -86,6 +95,11 @@ class AlienInvasion():
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
         self.bullet.update()
+
+        for bullet in self.bullet.sprites():
+            """Desenha cada projétil na tela"""
+            bullet.draw_bullet()
+
         pygame.display.flip()
 
 
