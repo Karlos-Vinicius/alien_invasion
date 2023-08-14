@@ -8,10 +8,10 @@ class Settings:
         self.bg_color = (230, 230, 230)
 
         # Configuraçoes da espaçonave
-        self.ship_speed = 1.5
+        self.ship_speed = 3
 
         # Configuraçoes do projétil
-        self.bullet_speed = 1.5
+        self.bullet_speed = 7
         self.bullet_widht = 5
         self.bullet_height = 14
         self.bullet_bg_color = (60, 60, 60)
