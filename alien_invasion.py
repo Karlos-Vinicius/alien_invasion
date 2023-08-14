@@ -4,6 +4,7 @@ import pygame
 
 from settings import Settings
 from ship import Ship
+from bullet import Bullet
 
 
 class AlienInvasion():
@@ -14,8 +15,6 @@ class AlienInvasion():
         self.clock = pygame.time.Clock()
         self.settings = Settings()
 
-
-
         self.running_game = True
 
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
@@ -24,6 +23,7 @@ class AlienInvasion():
         pygame.display.set_caption("Space Invaders 2.0")
 
         self.ship = Ship(self)
+        self.bullet = pygame.sprite.Group()
 
 
     def _check_events(self):
@@ -85,6 +85,7 @@ class AlienInvasion():
         """Atualiza as imagens na tela"""
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
+        self.bullet.update()
         pygame.display.flip()
 
 
