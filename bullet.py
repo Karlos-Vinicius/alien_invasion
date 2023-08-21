@@ -11,9 +11,10 @@ class Bullet(Sprite):
         self.screen = other_class.screen
         self.settings = other_class.settings
         self.color = self.settings.bullet_bg_color
+        self.image = pygame.image.load("images/bullet.png")
 
-        # Cria um bullet rect em (0, 0) e, em seguida, define a posiçao correta
-        self.rect = pygame.Rect(0, 0, self.settings.bullet_widht, self.settings.bullet_height)
+        # Cria um bullet rect e, em seguida, define a posiçao correta
+        self.rect = self.image.get_rect()
         self.rect.midtop = other_class.ship.rect.midtop
 
         # Armazena a posiçao atual do projétil
@@ -32,3 +33,7 @@ class Bullet(Sprite):
     def draw_bullet(self):
         """Desenha o objeto bullet na tela"""
         pygame.draw.rect(self.screen, self.color, self.rect) 
+
+
+    def blitme(self):
+        self.screen.blit(self.image, self.rect)

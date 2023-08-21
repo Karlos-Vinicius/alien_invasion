@@ -98,7 +98,7 @@ class AlienInvasion():
 
         for bullet in self.bullet.sprites():
             """Desenha cada projétil na tela"""
-            bullet.draw_bullet()
+            bullet.blitme()
 
         pygame.display.flip()
 
