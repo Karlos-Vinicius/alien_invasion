@@ -86,8 +86,9 @@ class AlienInvasion():
     
 
     def _fire_bullet(self):
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        if self.settings.bullet_max_numbers > len(self.bullets):
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
 
 
     def _update_screen(self):
@@ -112,6 +113,11 @@ class AlienInvasion():
 
             # Redesenha a tela a cada passagem pelo loop
             self._update_screen()
+
+            # Descarta os projéteis quando passam da tela
+            for bullet in self.bullets.copy():
+                if bullet.rect.bottom <= 0:
+                    self.bullets.remove(bullet)
             
             # Taxa de 60 quadros por segundo
             self.clock.tick(60)
