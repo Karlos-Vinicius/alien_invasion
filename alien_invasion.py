@@ -23,7 +23,7 @@ class AlienInvasion():
         pygame.display.set_caption("Space Invaders 2.0")
 
         self.ship = Ship(self)
-        self.bullet = pygame.sprite.Group()
+        self.bullets = pygame.sprite.Group()
 
 
     def _check_events(self):
@@ -87,16 +87,16 @@ class AlienInvasion():
 
     def _fire_bullet(self):
         new_bullet = Bullet(self)
-        self.bullet.add(new_bullet)
+        self.bullets.add(new_bullet)
 
 
     def _update_screen(self):
         """Atualiza as imagens na tela"""
         self.screen.fill(self.settings.bg_color)
         self.ship.blitme()
-        self.bullet.update()
+        self.bullets.update()
 
-        for bullet in self.bullet.sprites():
+        for bullet in self.bullets.sprites():
             """Desenha cada projétil na tela"""
             bullet.blitme()
 
