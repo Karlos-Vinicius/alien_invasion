@@ -32,7 +32,7 @@ class Bullet(Sprite):
 
     def draw_bullet(self):
         """Desenha o objeto bullet na tela"""
-        pygame.draw.rect(self.screen, self.color, self.rect) 
+        pygame.draw.rect(self.screen, self.rect) 
 
 
     def blitme(self):
